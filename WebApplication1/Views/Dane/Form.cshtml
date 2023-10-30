@@ -3,31 +3,14 @@
     ViewData["Title"] = "Form";
 }
 
-<form asp-action="Form" method="post">
-    <div asp-validation-summary="All"></div>
+@using (Html.BeginForm("Form", "Dane", FormMethod.Post))
+{
+@Html.ValidationSummary(false, "", new { @class = "text-danger"})
+<p>Twoje imie: @Html.TextBoxFor(a => a.Imie)</p>
+<p>Twoj email: @Html.TextBoxFor(a => a.Email)</p>
+<p>Temat: @Html.TextBoxFor(a => a.Temat)</p>
+<p>Tresc: @Html.TextBoxFor(a => a.Tresc)</p>
+<input type="submit" />
 
-    <div>
-        <label asp-for="Imie">Twoje imie</label>
-        <input asp-for="Imie" />
-        <span asp-validation-for="Imie"></span>
-    </div>
-    <div>
-        <label asp-for="Email">Twoje Email</label>
-        <input asp-for="Email" />
-        <span asp-validation-for="Email"></span>
-    </div>
-    <div>
-        <label asp-for="Temat">Temat</label>
-        <input asp-for="Temat" />
-        <span asp-validation-for="Temat"></span>
-    </div>
-    <div>
-        <label asp-for="Tresc">Tresc</label>
-        <input asp-for="Tresc" />
-        <span asp-validation-for="Tresc"></span>
-    </div>
-    <div>
-        <input type="submit" />
-    </div>
-</form>
-
+@Html.ValidationSummary(true, "", new { @class = "text-danger" })*/
+}
